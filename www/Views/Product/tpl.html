@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Product View</title>
+    </head>
+    <body class="dark">
+        <div class="body">     
+            <style type="text/css" scoped>
+                div.section-list{
+
+                }
+
+                div.section-list > div > div{
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+
+                div.section-list > div:nth-child(2n+1){
+                    background: #ffffff;
+                }
+
+                /*                ul.section-list li{
+                                    border: 1px solid red;
+                                }*/
+
+                /*Define a clear fix for the list items*/
+                div.section-list li:after{
+                    content: " ";
+                    display: block;
+                    height: 1px;
+                }
+
+                a.category{
+                    display: block;
+                    float: left;
+                    padding: 5px;
+                    background: #e4e4e4;
+                    margin-right: 5px;
+                    text-decoration: none;
+                }    
+
+                a.category:hover{
+                    background: #a4a4a4;
+                }
+
+                .clearfix:after{
+                    content: " ";
+                    display: block;
+                    height: 1px;
+                }
+
+                /*hide the notification span*/
+                div.search-serial-number-notification{
+                    display: block;
+                    /*text-wrap: normal;*/
+                    width: 100%;
+                    white-space: normal;
+
+                }
+                
+                input.search-serial-number{
+                    width: 100%;
+                    margin: 0px;
+                    
+                }
+                
+                button.search-serial-number{
+                    width: 100%;
+                    margin: 0px;
+                    
+                }
+
+                div.search-serial-number-check-result{
+                    /*border:1px solid #595959;*/
+                    width: 100%;
+                    overflow-x: hidden;
+                }
+
+                div.search-serial-number-check-result > div {
+                    clear: both;
+                    border: 1px solid #595959;
+                    border-radius: 7px 7px 0px 0px;
+                }
+
+                div.search-serial-number-check-result > div:nth-child(2n+2){
+                    background-color: #595959;
+                    color: #f9f9f9;
+                    border-radius: 0px 0px 7px 7px;   
+                    margin-bottom: 6px;
+                }
+
+                div.search-serial-number-check-result > div > span{
+                    margin: 6px;
+                }
+
+                div.serial-number-search-group{
+                    max-width: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    margin-left: auto; 
+                    margin-right: auto;   
+                    display: block;
+                }
+
+                div.serial-number-search-group input{
+                    padding: 20px 10px;
+                    width: calc(100% - 20px);
+                }
+
+                button.report-counterfeit-button{
+                    width: 100%;
+                    margin-top: 5px;
+                }
+            </style>
+            <div class="product-details topcoat-list">
+                <h3 class="topcoat-list__header">${{Name}}</h3>
+                <div class="topcoat-list__container section-list">
+
+                    <div>
+                        <div class="clearfix">
+                            <h3>Category</h3>
+                            <div>$[[Categories]]</div> 
+                        </div>
+
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Purpose</h3>
+                            <div>${{Description}}</div>                    
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3>Manufacturer</h3>
+                            <div>${{Manufacturer.Name}}</div> 
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <div>
+                            <h3>Check</h3>
+                            <div class="serial-number-search-group clearfix">
+                                <table style="width: 100%; margin-left: auto; margin-right: auto">
+                                    <tr>
+                                        <td>
+                                            <input type="text" placeholder="Serial number" class="search-serial-number"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="topcoat-button--cta search-serial-number" >Go!</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="min-height: 25px;">
+                                            <div class="topcoat-notification search-serial-number-notification">Checking... please wait</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="search-serial-number-check-result">
+                                                <div>
+                                                    <span>Batch Number</span>
+                                                </div>
+                                                <div class="batch-number">
+                                                    <span>${{Batch_x0020_Number}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>Produced</span>
+                                                </div>
+                                                <div class="date-produced">
+                                                    <span>${{Production_x0020_Date}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>Expires</span>
+                                                </div>
+                                                <div class="date-expiring">
+                                                    <span>${{Expiration_x0020_Date}}</span>
+                                                </div>
+                                            </div>
+                                            <button class="topcoat-button--cta report-counterfeit-button">Report Counterfeit</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
