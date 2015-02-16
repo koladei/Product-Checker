@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.cradlesoft.ProductChecker" version="1.0.0">
+    <name>ProductChecker</name>
+    <description>
+        Enables consumers to verify the authenticity of products before consumption and also to report suspicions
+    </description>
+    <author email="kolade.ige@cradlesoftware.com" href="http://www.cradlesoftware.com">
+        Kolade Ige
+    </author>
+    <content src="App.html"/>
+    <access origin="*"/>
+    <!--<access origin="https://maps.googleapis.com"/>-->
+<!--    
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>-->
+    
+</widget>

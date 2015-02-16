@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Product View</title>
+    </head>
+    <body class="dark">
+        <div class="body">     
+            <style type="text/css" scoped>
+                div.counterfeit-details{
+                    margin: 5px;
+                }
+
+                div.counterfeit-details > *{
+                    width: 100%;
+                    max-width: 100%;
+                    margin-top: 10px;
+                    white-space: inherit;
+                }
+
+                div.counterfeit-details a{
+                    color: #ffffff;
+                }
+
+                div.counterfeit-details > div.topcoat-notification button{
+                    margin-top: 10px;
+                }
+
+                div.agreement-panel{
+                    display: none;
+                }
+
+                .map-canvas {
+                    min-height: 200px;
+                    /*height: 50%;*/
+                    height: 50vh;
+                    width: 100%;
+                    margin: 0px;
+                    padding: 0px;
+                    display: none;
+                }
+            </style>
+            <div class="topcoat-list">
+                <h3 class="topcoat-list__header">Report on ${{ProductName}} [SN:#${{SerialNumber}}]</h3>
+                <div class="topcoat-list__container">
+                    <div class="counterfeit-details">
+                        <input type="text" value="" class="topcoat-text-input retailer-location-input" placeholder="Location" disabled>
+                        <div class="map-canvas"></div>
+                        <input type="text" value="" class="topcoat-text-input retailer-name-input" placeholder="Retailer name">
+                        <textarea class="topcoat-text-input retailer-address-input" placeholder="Address"></textarea>
+                        <button class="topcoat-button--cta send-report-button" disabled>Send report</button>
+                        <div class="topcoat-notification agreement-panel">
+                            <div>By clicking on submit, I agree that I am liable to <a href="${{TermsAndConditions}}">terms and conditions</a></div>
+                            <button class="topcoat-button--cta submit-button" disabled>Submit</button>
+                            <button class="topcoat-button--quiet cancel-button" style="color: #ffffff; text-shadow: none; box-shadow: none; background: transparent; text-decoration: underline">Cancel</button>
+
+                        </div>
+                        <div class="status" style="display: none; padding-top: 5px; padding-bottom: 5px">Please wait...</div>
+                        <button class="topcoat-button--cta go-back-button">Go back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
