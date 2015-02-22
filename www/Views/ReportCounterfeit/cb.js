@@ -28,7 +28,7 @@
             var geolocationRetrieved = false;
 
             if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
-                alert("Showing map")
+//                alert("Showing map")
                 mapConvas.show();
 
                 var geocoder;
@@ -78,7 +78,7 @@
                 latitude = coords.latitude;
                 longitude = coords.longitude;
                 retailerLocation.val(coords.latitude + ", " + coords.longitude);
-                console.log(coords.latitude + ", " + coords.longitude);
+//                console.log(coords.latitude + ", " + coords.longitude);
             }, function () {
                 console.log('failure');
                 console.log(arguments);
@@ -156,8 +156,8 @@
             }
 
             function getLocationName(long, lat) {
-//                var query = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + long;//"https://maps.googleapis.com/maps/api/geocode/json?latlng=6.4343297999999995,3.4395094999999998";//
-                var query = "http://hospital.dev/_proxy/http://maps.googleapis.com/maps/api/geocode/json/options(full_status=true%7Cfull_headers=true)?latlng=6.4343297999999995,3.4395094999999998";
+                var query = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + long;//"https://maps.googleapis.com/maps/api/geocode/json?latlng=6.4343297999999995,3.4395094999999998";//
+//                var query = "http://hospital.dev/_proxy/http://maps.googleapis.com/maps/api/geocode/json/options(full_status=true%7Cfull_headers=true)?latlng=6.4343297999999995,3.4395094999999998";
 //                console.log(query)
                 $.ajax({
                     url: query,
@@ -182,22 +182,22 @@
                 }).fail(function(failure){
                     console.log(failure);
                 });
-//                var latlng = new google.maps.LatLng(lat, lng);
-//                geocoder.geocode({'latLng': latlng}, function (results, status) {
-//                    if (status == google.maps.GeocoderStatus.OK) {
-//                        console.log(results.length);
-//                        if (results[1]) {
-//                            console.log(results[1].formatted_address);
-//
-//                            infowindow.setContent(results[1].formatted_address);
-//                            infowindow.open(map, marker);
-//                        } else {
-////                            retailerLocation.val("Location found with no name");
-//                        }
-//                    } else {
-//                        console.log(status);
-//                    }
-//                });
+                var latlng = new google.maps.LatLng(lat, lng);
+                geocoder.geocode({'latLng': latlng}, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        console.log(results.length);
+                        if (results[1]) {
+                            console.log(results[1].formatted_address);
+
+                            infowindow.setContent(results[1].formatted_address);
+                            infowindow.open(map, marker);
+                        } else {
+                            retailerLocation.val("Location found with no name");
+                        }
+                    } else {
+                        console.log(status);
+                    }
+                });
             }
 
             viewParameters.Callback();
